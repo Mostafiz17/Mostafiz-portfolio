@@ -1,0 +1,668 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mostafiz | Software Engineer &amp; Video Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Outfit:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed": "#351000",
+                        "inverse-primary": "#005bc1",
+                        "background": "#0A0A0A",
+                        "on-primary-fixed": "#001a41",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#4c1a00",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#310048",
+                        "secondary-fixed-dim": "#e9b3ff",
+                        "surface": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#e9b3ff",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#3a3939",
+                        "primary": "#007aff", /* Updated to Electric Blue */
+                        "tertiary": "#ffb595",
+                        "on-secondary": "#510074",
+                        "on-surface": "#e5e2e1",
+                        "surface-variant": "#353534",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#c1c6d7",
+                        "secondary-container": "#7d01b1",
+                        "surface-tint": "#007aff", /* Updated to Electric Blue */
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-primary-container": "#00285c",
+                        "outline-variant": "#414755",
+                        "outline": "#8b90a0",
+                        "secondary-fixed": "#f6d9ff",
+                        "on-secondary-container": "#e5a9ff",
+                        "primary-container": "#0056b3",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#7200a3",
+                        "on-tertiary": "#571e00",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#ef6719",
+                        "on-primary-fixed-variant": "#004493"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "section-gap": "128px",
+                        "unit": "4px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Outfit"],
+                        "body-lg": ["Inter"],
+                        "headline-md-mobile": ["Outfit"],
+                        "display-2xl": ["Outfit"],
+                        "label-sm": ["JetBrains Mono"],
+                        "display-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-2xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+        .loading-screen { animation: fadeOut 0.8s ease-in-out 1.5s forwards; }
+        
+        .obsidian-glass {
+            background: rgba(255, 255, 255, 0.015);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .rim-light {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .primary-glow:hover {
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.3);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typewriter::after {
+            content: "|";
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .service-card {
+            perspective: 1000px;
+        }
+
+        .scroll-progress {
+            height: 2px;
+            background: linear-gradient(90deg, #007aff, #e9b3ff);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #353534; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #007aff; }
+        
+        .dark-blue-gradient {
+            background: radial-gradient(circle at 20% 50%, rgba(0, 51, 102, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.3) 0%, transparent 60%),
+                        radial-gradient(circle at 40% 20%, rgba(0, 25, 51, 0.5) 0%, transparent 50%),
+                        linear-gradient(135deg, #0a0a15 0%, #000000 50%, #0d1a2a 100%);
+            background-size: 400% 400%;
+            animation: darkBlueGlow 12s ease infinite;
+        }
+        
+        @keyframes darkBlueGlow {
+            0% { background-position: 0% 50%; filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.2)); }
+            50% { background-position: 100% 50%; filter: drop-shadow(0 0 40px rgba(0, 102, 255, 0.4)); }
+            100% { background-position: 0% 50%; filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.2)); }
+        }</style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- Loading Screen -->
+<div class="loading-screen fixed inset-0 z-[100] flex items-center justify-center bg-background" id="loader">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+<p class="mt-4 font-label-sm text-label-sm text-primary tracking-widest uppercase">Initializing Canvas</p>
+</div>
+</div>
+<!-- Background Shader -->
+<div class="fixed inset-0 z-0 pointer-events-none opacity-40 dark-blue-gradient">
+</div>
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] bg-surface/10" style="backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-display-lg text-[24px] md:text-display-lg font-bold tracking-tighter text-primary" href="#">MOSTAFIZ</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#work">Work</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#journey">Journey</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform primary-glow" style="box-shadow: rgba(0, 122, 255, 0.3) 0px 0px 15px 1px, rgba(0, 122, 255, 0.1) 0px 0px 30px 2px;">Hire Me</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 z-10">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em] mb-6 scroll-reveal active">Engineering the Future</p>
+<h1 class="font-display-2xl text-[40px] md:text-display-2xl mb-6 leading-tight scroll-reveal delay-100 active">
+                Crafting <span class="text-primary italic">Digital</span> Narrative through <br> Code &amp; Motion
+            </h1>
+<div class="h-12 scroll-reveal delay-200 active">
+<span class="font-headline-md text-headline-md-mobile md:text-headline-md text-secondary typewriter" id="role-text">AI Enthusi</span>
+</div>
+<p class="mt-8 text-on-surface-variant font-body-lg text-body-lg max-w-xl scroll-reveal delay-300 active">
+                Software Engineering student dedicated to high-performance systems and cinematic video production. Bridging the gap between technical logic and visual storytelling.
+            </p>
+<div class="flex flex-wrap gap-4 mt-10 scroll-reveal delay-400 active">
+<a class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 primary-glow transition-all" href="#work" style="box-shadow: rgba(0, 122, 255, 0.3) 0px 0px 20px 2px, rgba(0, 122, 255, 0.15) 0px 0px 40px 4px;">
+                    View Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="obsidian-glass text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all rim-light" href="#contact" style="box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 12px inset, rgba(0, 0, 0, 0.3) 0px 4px 20px;">
+                    Get In Touch
+                </a>
+</div>
+</div>
+<div class="lg:col-span-5 flex justify-center lg:justify-end scroll-reveal delay-500 active">
+<div class="relative w-72 h-72 md:w-96 md:h-96">
+<div class="absolute inset-0 blur-[100px] rounded-full animate-pulse bg-primary/10"></div>
+<div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/20 obsidian-glass">
+<img alt="Mostafiz Profile" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional passport-style portrait of a young man with glasses and dark hair, wearing a black shirt against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJzlZzFDCL3xzKA7E8AMOxaWbmPWPaywrAOHOTlSgWQ-UbWXO66PBIOYCIAQa4C-jYQgNfB9bOuDSwvNhthfaSMGJgBD-2hZd6ZHswDaGRzRAx1zFcnMMelaFf4XhLpwsvbhs1ir0iogC4tRx9Bcjeqh33GIBlZv3eZDrVnTxC48kqWXEJyteK6QNic9iUryvglvrFT1ooafqDAEWpvENBwrTsZ9caC4YI5T6E3sv21HOr9SVPP5uNay1ST03-P9i0sZRTF2HZN_M">
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent">
+<p class="font-label-sm text-[10px] text-primary uppercase">Available for Projects</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="obsidian-glass p-8 rounded-2xl rim-light scroll-reveal active">
+<p class="text-primary font-display-lg text-display-lg mb-2 counter active" data-target="24">24+</p>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Projects Completed</p>
+</div>
+<div class="obsidian-glass p-8 rounded-2xl rim-light scroll-reveal delay-100 active">
+<p class="text-secondary font-display-lg text-display-lg mb-2 counter active" data-target="3">3+</p>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Years Experience</p>
+</div>
+<div class="obsidian-glass p-8 rounded-2xl rim-light scroll-reveal delay-200 active">
+<p class="text-tertiary font-display-lg text-display-lg mb-2 counter active" data-target="15">15+</p>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Happy Clients</p>
+</div>
+<div class="obsidian-glass p-8 rounded-2xl rim-light scroll-reveal delay-300 active">
+<p class="text-primary font-display-lg text-display-lg mb-2 counter active" data-target="12">12+</p>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Tools Mastered</p>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/50" id="skills">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20 scroll-reveal active">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-4">Technical &amp; Creative Arsenal</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Blending rigorous software engineering principles with high-end digital aesthetics.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h3 class="font-label-sm text-primary uppercase mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined">code</span> Software Development
+                </h3>
+<div class="space-y-8">
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">Python &amp; C++</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-primary active opacity-80" data-width="90%" style="width: 90%;"></div>
+</div>
+</div>
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">HTML, CSS &amp; JavaScript</span>
+<span class="text-primary">95%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-primary active opacity-80" data-width="95%" style="width: 95%;"></div>
+</div>
+</div>
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">Git &amp; Workflow</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-primary active opacity-80" data-width="85%" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label-sm text-secondary uppercase mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined">movie_filter</span> Content Creation
+                </h3>
+<div class="space-y-8">
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">Premiere Pro</span>
+<span class="text-secondary">98%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-secondary active opacity-80" data-width="98%" style="width: 98%;"></div>
+</div>
+</div>
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">After Effects</span>
+<span class="text-secondary">80%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-secondary active opacity-80" data-width="80%" style="width: 80%;"></div>
+</div>
+</div>
+<div class="skill-item">
+<div class="flex justify-between mb-2">
+<span class="font-body-md">AI Model Integration</span>
+<span class="text-secondary">75%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="skill-bar h-full bg-secondary active opacity-80" data-width="75%" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop" id="work">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="scroll-reveal active">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-2">Featured Creations</h2>
+<p class="text-on-surface-variant">A selection of my most challenging and rewarding works.</p>
+</div>
+<div class="flex gap-2 scroll-reveal active">
+<button class="px-6 py-2 rounded-full obsidian-glass font-label-sm text-primary border border-primary/30">All</button>
+<button class="px-6 py-2 rounded-full obsidian-glass font-label-sm text-on-surface-variant">Code</button>
+<button class="px-6 py-2 rounded-full obsidian-glass font-label-sm text-on-surface-variant">Video</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project Card 1 -->
+<div class="group relative obsidian-glass rounded-3xl overflow-hidden rim-light scroll-reveal active" onclick="openModal('portfolio')">
+<div class="h-80 w-full overflow-hidden">
+<img alt="Portfolio Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A clean, minimalist 3D desktop setup rendering of a high-end portfolio website displayed on an ultrawide monitor. The interface features obsidian glass textures, glowing neon blue accents, and futuristic typography. The setting is a dark studio with soft atmospheric haze and cool cyan lighting, creating a high-performance developer workspace aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPH1JKFbKkHrT0pg_HTHTQqSIg7maS4ia_-Fs01KIU_6cfJs9tQMQKhXUbb4Z19aCMVCxPXSfyEr9oyb6grtNp8jRaw4Z86Od6IUayzS6RSKDCD_osrFeF7qOVa6TWrR4iMrOFFDT4bQHFVQroHOV-DpJsfrQIPAp86c-6L14IzIH3r53S0Hu4M80c_QEBkmq1W5RUbGt3GAEqTyYsoXDZwQHq65Wdi7RD5tQGa2QCXmc5sGJGLloYPqlbYTp60fR7glo4Fa0fHbo">
+</div>
+<div class="p-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-label-sm uppercase">Development</span>
+<span class="px-3 py-1 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-label-sm uppercase">Next.js</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-2">Portfolio Website</h3>
+<p class="text-on-surface-variant line-clamp-2">A high-performance personal brand showcase with bespoke animations and Obsidian glass design language.</p>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative obsidian-glass rounded-3xl overflow-hidden rim-light scroll-reveal delay-100 active" onclick="openModal('video')">
+<div class="h-80 w-full overflow-hidden">
+<img alt="Video Editing Showcase" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A cinematic still from a professional video editing timeline on a dual-monitor setup. High-contrast color grading with deep blacks and vibrant teal highlights. The screen shows complex video layers and waveform monitors, illuminated by the glow of professional editing hardware in a dimly lit, high-end post-production suite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIynOpnRaKxxGA2Q-OYFZiFZ1SWbLeSY2iujOkPCPmd2KxjiwyAWkPxxupezOYACelklcjwSN2qEuAJJ7U0ILFkqwu2z9XiM6UiSatiwxN2_GOVACYJ2XJing9PIZvha9R9G91E9_tMLY4WetT7lFqsG8ZwbA0LaFmCPrsFmuBOnFUuXZb9FPptC4CiYOhPZOAkf4uUNvT4hKnQaDiox9HQCR8_pGNzQvtdRpizxnfmz81TATfUsSWxX33pr4A-oScRHc0j1RwN6Y">
+</div>
+<div class="p-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-label-sm uppercase">Creative</span>
+<span class="px-3 py-1 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-label-sm uppercase">Premiere Pro</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-2">Video Editing Showcase</h3>
+<p class="text-on-surface-variant line-clamp-2">A compilation of high-energy commercial edits and cinematic short-form storytelling content.</p>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group relative obsidian-glass rounded-3xl overflow-hidden rim-light scroll-reveal delay-200 active" onclick="openModal('ai')">
+<div class="h-80 w-full overflow-hidden">
+<img alt="AI Video Creation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A high-tech digital art visual showing a network of glowing neural paths and data nodes forming a human-like silhouette. The colors are deep purples and electric blues against a pitch-black background. Stylized data streams and code fragments float in the foreground, representing the intersection of artificial intelligence and digital video production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-SY0ncMYB-A2ubuvK_bdz3qIosGYO-11yUFZoqwaxDgDtUVA4VpynFNW6OWqEIHOXrghnkQDobE9chdiyl_6PfISgcE52dJt1QouliyRg6h5w7pUpgcDddAHLQKFNGrqdeVcvgxXFr6F7gLnc2PTHWtqrHJ1G6ldQF4_N-jNJzzXAbE3ZZeFakLONkOZuAp4JTGK0mRSbw-odmhcKTS4rBMEKrdhI8AL1pSYudK78nry6aKTeggSYYHvWaCIMUpRgQifvt0EgRvM">
+</div>
+<div class="p-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-label-sm uppercase">AI Integration</span>
+<span class="px-3 py-1 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-label-sm uppercase">Python</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-2">AI Video Creation</h3>
+<p class="text-on-surface-variant line-clamp-2">Exploration of generative AI tools to streamline content production and enhance visual fidelity.</p>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group relative obsidian-glass rounded-3xl overflow-hidden rim-light scroll-reveal delay-300 active" onclick="openModal('software')">
+<div class="h-80 w-full overflow-hidden">
+<img alt="Software Projects" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A sophisticated macro shot of complex lines of code on a high-resolution screen with a shallow depth of field. The code is highlighted with a neon syntax theme in blue and magenta. Reflection of ambient office lighting on the glass screen creates a layered depth, suggesting a high-level software engineering project in development." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJD-_srjTD_fEmag6yP8JUsxU2I7-a-W3NNFWsiTNe1X1HP11twyjxFzQSvn3HO58aM9hXOifTtS_fLZObiuAOn3QpDslxY2j2UAXyo52L8SHtBs2f8BGjyveAN--VCWZgRUBixSo5M8zomPMXVWqR-QgeuQc-O4UBPipiMPYv2_8kYKAZ53qk5jJBkr7mcR2iauemTJMk3GLMSsaVmqFStl0jFjljjrRKrB2hY8m5Uc1JoIpfGkd2IPrThNJH-NV0duwffZ9Olvs">
+</div>
+<div class="p-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-label-sm uppercase">Software</span>
+<span class="px-3 py-1 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-label-sm uppercase">C++ / Git</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-2">Software Projects</h3>
+<p class="text-on-surface-variant line-clamp-2">Open-source contributions and systems-level programming projects focusing on efficiency.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/30">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20 scroll-reveal active">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-4">Core Services</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Tailored solutions for modern digital problems, from architecture to aesthetics.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="service-card group obsidian-glass p-8 rounded-3xl rim-light hover:translate-y-[-8px] transition-all duration-500">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-4">Full-Stack Development</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Building scalable, responsive web applications with modern tech stacks and clean architecture.</p>
+</div>
+<div class="service-card group obsidian-glass p-8 rounded-3xl rim-light hover:translate-y-[-8px] transition-all duration-500">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">video_stable</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-4">Professional Video Editing</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">High-end editing for commercials, social media, and cinema using industry-standard tools.</p>
+</div>
+<div class="service-card group obsidian-glass p-8 rounded-3xl rim-light hover:translate-y-[-8px] transition-all duration-500">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">neurology</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-4">AI Solutions</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Integrating machine learning and generative AI to automate workflows and create unique content.</p>
+</div>
+<div class="service-card group obsidian-glass p-8 rounded-3xl rim-light hover:translate-y-[-8px] transition-all duration-500">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">motion_sensor_active</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-4">Motion Graphics</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Dynamic visual effects and animated elements that bring digital interfaces and videos to life.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Journey Timeline -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop" id="journey">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-16 text-center scroll-reveal active">The Roadmap</h2>
+<div class="space-y-12 relative before:absolute before:left-[11px] before:top-2 before:bottom-0 before:w-px before:bg-white/10">
+<div class="relative pl-12 scroll-reveal active">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full border-2 border-primary bg-background z-10"></div>
+<p class="font-label-sm text-primary uppercase mb-2">2024 - Present</p>
+<h3 class="font-headline-md text-[20px] mb-2">Deepening Expertise</h3>
+<p class="text-on-surface-variant">Focusing on Full-Stack systems and advanced AI integrations while refining cinematic editing techniques.</p>
+</div>
+<div class="relative pl-12 scroll-reveal delay-100 active">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full border-2 border-white/20 bg-background z-10"></div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-2">2023</p>
+<h3 class="font-headline-md text-[20px] mb-2">Technical Foundations</h3>
+<p class="text-on-surface-variant">Mastering Python, C++, and modern JavaScript frameworks. Started taking on freelance video editing roles.</p>
+</div>
+<div class="relative pl-12 scroll-reveal delay-200 active">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full border-2 border-white/20 bg-background z-10"></div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-2">2022</p>
+<h3 class="font-headline-md text-[20px] mb-2">The Genesis</h3>
+<p class="text-on-surface-variant">Began Software Engineering journey. Discovered a passion for visual storytelling and motion design.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop" id="contact">
+<div class="max-w-container-max mx-auto obsidian-glass p-8 md:p-16 rounded-[40px] rim-light scroll-reveal active">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-display-lg text-display-lg mb-6 leading-tight">Ready to build <br> something <span class="text-primary italic">epic</span>?</h2>
+<p class="text-on-surface-variant text-body-lg mb-10">Whether you have a technical project or a creative vision, let's collaborate and bring it to reality.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full obsidian-glass flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<p class="font-body-md">rbmostafiz211@gmail.com</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full obsidian-glass flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<p class="font-body-md" data-location="Dhaka, Bangladesh">Dhaka, Bangladesh</p>
+</div>
+</div>
+</div>
+<form class="space-y-6" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase ml-2">Name</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-white/20" placeholder="John Doe" required="" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase ml-2">Email</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-white/20" placeholder="john@example.com" required="" type="email">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase ml-2">Service</label>
+<select class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none text-on-surface-variant">
+<option>Full-Stack Development</option>
+<option>Video Editing</option>
+<option>AI Solutions</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase ml-2">Message</label>
+<textarea class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-white/20" placeholder="Tell me about your project..." required="" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-2xl primary-glow hover:scale-[0.98] transition-transform" type="submit" style="box-shadow: rgba(0, 122, 255, 0.3) 0px 0px 20px 3px, rgba(0, 122, 255, 0.1) 0px 0px 40px 6px;">Send Message</button>
+<div class="hidden text-center text-primary font-label-sm uppercase mt-4 animate-bounce" id="formSuccess">Message Sent Successfully!</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-section-gap border-t border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">MOSTAFIZ</h3>
+<p class="text-on-surface-variant text-sm">© 2024 Mostafiz. Built with Precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-all hover:translate-y-[-2px]" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:translate-y-[-2px]" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:translate-y-[-2px]" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:translate-y-[-2px]" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<!-- Utilities -->
+<button class="fixed bottom-8 right-8 w-12 h-12 obsidian-glass rounded-full flex items-center justify-center text-primary opacity-0 transition-all hover:scale-110 z-[60] rim-light" id="backToTop">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<!-- Scripts -->
+<script>
+    // Typewriter Effect
+    const roles = ["Software Engineer", "Video Editor", "AI Enthusiast"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const roleTextElement = document.getElementById('role-text');
+
+    function type() {
+        const currentRole = roles[roleIndex];
+        if (isDeleting) {
+            roleTextElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            roleTextElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 150;
+        if (!isDeleting && charIndex === currentRole.length) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500;
+        }
+        setTimeout(type, typeSpeed);
+    }
+    document.addEventListener('DOMContentLoaded', type);
+
+    // Scroll Reveal
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                if (entry.target.classList.contains('skill-bar')) {
+                    entry.target.style.width = entry.target.dataset.width;
+                }
+                if (entry.target.classList.contains('counter')) {
+                    animateCounter(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal, .skill-bar, .counter').forEach(el => observer.observe(el));
+
+    // Counter Animation
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.target);
+        let count = 0;
+        const increment = target / 50;
+        const updateCount = () => {
+            if (count < target) {
+                count += increment;
+                el.innerText = Math.ceil(count) + (target > 50 ? '' : '+');
+                setTimeout(updateCount, 20);
+            } else {
+                el.innerText = target + (target > 50 ? '' : '+');
+            }
+        };
+        updateCount();
+    }
+
+    // Scroll Progress & Back to Top
+    window.addEventListener('scroll', () => {
+        const scroll = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scroll / height) * 100;
+        document.getElementById('scrollProgress').style.width = `${progress}%`;
+        
+        const btt = document.getElementById('backToTop');
+        if (scroll > 500) {
+            btt.style.opacity = '1';
+            btt.style.pointerEvents = 'auto';
+        } else {
+            btt.style.opacity = '0';
+            btt.style.pointerEvents = 'none';
+        }
+    });
+
+    document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form Interaction
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const success = document.getElementById('formSuccess');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.textContent = 'Sent!';
+            success.classList.remove('hidden');
+            e.target.reset();
+        }, 1500);
+    });
+
+    // 3D Tilt for Service Cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = -(x - centerX) / 10;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+</body></html>
